@@ -8,8 +8,8 @@ class LoginPage(MainPage):
 
     def should_be_login_form(self):
         login_form = self.is_element_present(*LoginPageLocators.LOGIN_FORM_PRESENT)
-        assert login_form, "Login form is not on the page"
+        assert login_form is True, "Login form is not on the page"
 
     def should_be_register_form(self):
         register_form = self.is_element_present(*LoginPageLocators.SIGNUP_FORM_PRESENT)
-        assert register_form, "Register for is not on the page"
+        assert register_form, "Register form is not on the page"
