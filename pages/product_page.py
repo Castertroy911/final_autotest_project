@@ -1,7 +1,5 @@
 import pytest
-
 from pages.main_page import MainPage
-from selenium.webdriver.common.by import By
 from pages.locators import ProductPageLocators
 
 
@@ -31,4 +29,12 @@ class ProductPage(MainPage):
         price_in_basket = self.browser.find_element(*ProductPageLocators.PRICE_IN_BASKET)
         price_in_basket = price_in_basket.text.split(" ") [0]
         assert product_price == price_in_basket, "Price in basket is not the same as a product price"
+
+    def should_not_be_success_message(self):
+        message = self.is_not_element_present(*ProductPageLocators.CONFIRMATION_MESSAGE)
+        assert message is True, "Success message is present, but it shouldn't"
+
+    def should_dissapear_success_message(self):
+        message = self.is_dissapeared(*ProductPageLocators.CONFIRMATION_MESSAGE)
+        assert message is True, "Success message should be dissapeared, but it's not"
 
