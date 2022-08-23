@@ -23,13 +23,6 @@ class TestLoginFromMainPage:
         page.should_not_be_products_in_empty_basket()
         page.should_be_message_about_empty_basket()
 
-    def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/uk/catalogue/growing-object-oriented-software-guided-by-tests_123/"
-        page = BasketPage(browser, link)
-        page.open()
-        page.should_be_basket_link()
-        page.go_to_basket()
-        page.should_not_be_products_in_empty_basket()
-        page.should_be_message_about_empty_basket()
+
 
 
